@@ -8,25 +8,53 @@ const regex = /^\w+(?: \w+)*$/;
 
 //CONTROLLO CHE SIA UNA STRINGA E NON UN NUMERO
 if (regex.exec(input) != null) {
-    const string_input = input;
-    if (string_input.indexOf(" ") !== -1) {
+
+    if (input.indexOf(" ") !== -1) {
         console.log("CONTIENE SPAZI");
-        const array_reverse = input.split(" ").reverse().join("");
-        console.log("STRINGA ----> " + input + " // STRINGA REVERSE ---> " + array_reverse);
-        console.log(checkPalindrome(input, array_reverse));
+        const array = input.split(" ").join("");
+        const array_reverse = reverseString(array)
+        console.log("STRINGA ----> " + array + " // STRINGA REVERSE ---> " + array_reverse);
+        checkPalindrome(array, array_reverse);
     }
     else {
         console.log("NON CONTIENE SPAZI");
-        const array_reverse = input.split("").reverse().join("");
-        console.log("STRINGA ----> " + input + " // STRINGA REVERSE ---> " + array_reverse);
-        console.log(checkPalindrome(input, array_reverse));
+        const array = input.split("").join("");
+        const array_reverse = reverseString(array)
+        console.log("STRINGA ----> " + array + " // STRINGA REVERSE ---> " + array_reverse);
+        checkPalindrome(array, array_reverse);
     }
+
 }
 
 //METODO CONTROLLO CHE LA STRINGA SIA PALINDROMA
-function checkPalindrome(stringa_uno, stringa_due) {
-    if (stringa_uno === stringa_due)
-        return "SONO UGUALI";
+function checkPalindrome(array, array_reverse) {
 
-    return "NON SONO UGUALI";
+    for (let i = 0; i < array.length; i++) {
+        let counter = ((array_reverse.length - 1) - i);
+        console.log("COUNT ---> " + i + " // " + counter);
+        if (array[i] === array_reverse[counter]) {
+            console.log("CONFRONTO ---> " + array[i] + " = " + array_reverse[counter]);
+            console.log("SONO UGUALI");
+        }
+        else {
+            console.log("NON SONO UGUALI");
+        }
+
+    }
+
+    //return "NON SONO UGUALI";
+}
+
+//METODO REVERSE
+function reverseString(array) {
+
+    const array_reverse = [];
+
+    for (let i = 0; i < array.length; i++) {
+        const counter = ((array.length - 1) - i);
+        array_reverse.push(array[counter]);
+    }
+    console.log("STRINGA ----> " + array.length + " // STRINGA REVERSE ---> " + array_reverse.length);
+
+    return array_reverse;
 }
