@@ -13,17 +13,20 @@ if (regex.exec(input) != null) {
         console.log("CONTIENE SPAZI");
         const array_reverse = input.split(" ").reverse().join("");
         console.log("STRINGA ----> " + input + " // STRINGA REVERSE ---> " + array_reverse);
+        console.log(checkPalindrome(input, array_reverse));
     }
     else {
         console.log("NON CONTIENE SPAZI");
         const array_reverse = input.split("").reverse().join("");
         console.log("STRINGA ----> " + input + " // STRINGA REVERSE ---> " + array_reverse);
+        console.log(checkPalindrome(input, array_reverse));
     }
 }
 
 //METODO CONTROLLO CHE LA STRINGA SIA PALINDROMA
-/*function checkPalindrome(stringa_uno, stringa_due) {
-    
-    if[array === 
+function checkPalindrome(stringa_uno, stringa_due) {
+    if (stringa_uno === stringa_due)
+        return "SONO UGUALI";
 
-}*/
+    return "NON SONO UGUALI";
+}
