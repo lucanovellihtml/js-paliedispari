@@ -20,21 +20,27 @@ button_odd.addEventListener("click", function () {
     - METODO CHE CONTROLLA SE E' PARI O DISPARI;
     - VIENE RICHIESTO L'INPUT INTERO DALL'UTENTE E POI GENERATO UN NUMERO RANDOM,
       VIENE FATTA LA SOMMA E CONTROLLATO IL RISULTATO;
-    - LA VARIABILE FLAG IDENTIFICA CHE TIPO DI BOTTONE E' STATO PREMUTO;  
+    - LA VARIABILE FLAG IDENTIFICA CHE TIPO DI BOTTONE E' STATO PREMUTO;
+    - VIENE CONTROLLATO L'INPUT SE E' UN INTERO ED E' COMPRESO TRA 1 e 5;
 */
 function checkSum(flag) {
 
     const number = prompt("Inserisci un numero tra 1 e 5");
-    const summ = parseInt(number) + Math.floor(Math.random() * 5) + 1;
-    console.log("SOMMA ---> " + summ);
 
-    if (summ % 2 === 0 && flag)
-        console.log("HAI VINTO, IL NUMERO E' PARI");
+    if (!isNaN(number) && parseInt(number) > 0 && parseInt(number) < 6) {
+        const summ = parseInt(number) + Math.floor(Math.random() * 5) + 1;
+        console.log("SOMMA ---> " + summ);
 
-    else if (summ % 2 !== 0 && !flag)
-        console.log("HAI VINTO, IL NUMERO E' DISPARI");
+        if (summ % 2 === 0 && flag)
+            console.log("HAI VINTO, IL NUMERO E' PARI");
 
+        else if (summ % 2 !== 0 && !flag)
+            console.log("HAI VINTO, IL NUMERO E' DISPARI");
+
+        else
+            console.log("HAI PERSO");
+    }
     else
-        console.log("HAI PERSO");
+        location.reload();
 
 }
