@@ -6,6 +6,7 @@ const input = prompt("Inserisci la parola");
 //REGULAR EXPRESSION, NON ACCETTI NUMERI E CARATTERI SPECIALI
 const regex = /^\w+(?: \w+)*$/;
 
+
 //CONTROLLO CHE SIA UNA STRINGA E NON UN NUMERO
 if (regex.exec(input) != null) {
 
@@ -30,10 +31,10 @@ if (regex.exec(input) != null) {
 function checkPalindrome(array, array_reverse) {
 
     for (let i = 0; i < array.length; i++) {
-        let counter = ((array_reverse.length - 1) - i);
-        console.log("COUNT ---> " + i + " // " + counter);
-        if (array[i] === array_reverse[counter]) {
-            console.log("CONFRONTO ---> " + array[i] + " = " + array_reverse[counter]);
+        //let counter = ((array_reverse.length - 1) - i);
+        //console.log("COUNT ---> " + i + " // " + counter);
+        if (array[i] === array_reverse[i]) {
+            console.log("CONFRONTO ---> " + array[i] + " = " + array_reverse[i]);
             console.log("SONO UGUALI");
         }
         else {
