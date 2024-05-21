@@ -14,14 +14,14 @@ if (regex.exec(input) != null) {
         const array = input.split(" ").join("");
         const array_reverse = reverseString(array)
         console.log("STRINGA ----> " + array + " // STRINGA REVERSE ---> " + array_reverse);
-        checkPalindrome(array, array_reverse);
+        setResponse(checkPalindrome(array, array_reverse));
     }
     else {
         console.log("NON CONTIENE SPAZI");
         const array = input.split("").join("");
         const array_reverse = reverseString(array)
         console.log("STRINGA ----> " + array + " // STRINGA REVERSE ---> " + array_reverse);
-        checkPalindrome(array, array_reverse);
+        setResponse(checkPalindrome(array, array_reverse));
     }
 
 }
@@ -38,11 +38,25 @@ function checkPalindrome(array, array_reverse) {
         }
         else {
             console.log("NON SONO UGUALI");
+            return false;
         }
-
     }
 
-    //return "NON SONO UGUALI";
+    return true;
+}
+
+//METODO DI STAMPA
+function setResponse(flag) {
+
+    const header = document.querySelector("header");
+    const response = document.createElement("h1");
+    header.append(response);
+
+    if (flag)
+        response.innerHTML = "LA FRASE E' PALINDROMA";
+    else
+        response.innerHTML = "LA FRASE NON E' PALINDROMA";
+
 }
 
 //METODO REVERSE
@@ -54,6 +68,7 @@ function reverseString(array) {
         const counter = ((array.length - 1) - i);
         array_reverse.push(array[counter]);
     }
+
     console.log("STRINGA ----> " + array.length + " // STRINGA REVERSE ---> " + array_reverse.length);
 
     return array_reverse;
