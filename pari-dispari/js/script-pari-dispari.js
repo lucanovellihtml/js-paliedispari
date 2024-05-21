@@ -7,17 +7,22 @@ const button_odd = document.getElementById("button_odd");
 //METODO DI ASCOLTO DEL CLICK SUL PULSTANTE PARI O DISPARI
 button_even.addEventListener("click", function () {
     console.log("HAI PREMUTO PARI");
-    checkSumm(true);
+    checkSum(true);
 });
 
 button_odd.addEventListener("click", function () {
     console.log("HAI PREMUTO DISPARI");
-    checkSumm(false);
+    checkSum(false);
 });
 
 
-//METODO CHE CONTROLLA SE E' PARI O DISPARI
-function checkSumm(flag) {
+/*
+    - METODO CHE CONTROLLA SE E' PARI O DISPARI;
+    - VIENE RICHIESTO L'INPUT INTERO DALL'UTENTE E POI GENERATO UN NUMERO RANDOM,
+      VIENE FATTA LA SOMMA E CONTROLLATO IL RISULTATO;
+    - LA VARIABILE FLAG IDENTIFICA CHE TIPO DI BOTTONE E' STATO PREMUTO;  
+*/
+function checkSum(flag) {
 
     const number = prompt("Inserisci un numero tra 1 e 5");
     const summ = parseInt(number) + Math.floor(Math.random() * 5) + 1;
