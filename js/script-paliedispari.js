@@ -1,7 +1,7 @@
 "use strict";
 
 //VARIABILE INPUT
-const input = prompt("Inserisci la parola");
+const input = prompt("Inserisci la parola").toLowerCase();
 
 //REGULAR EXPRESSION, NON ACCETTI NUMERI E CARATTERI SPECIALI
 const regex = /^\w+(?: \w+)*$/;
